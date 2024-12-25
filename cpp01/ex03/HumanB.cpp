@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 16:00:03 by mnachit           #+#    #+#             */
-/*   Updated: 2024/12/23 12:02:55 by mnachit          ###   ########.fr       */
+/*   Updated: 2024/12/23 15:40:16 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void HumanB::attack(void)
 {
-    std::cout << this->name << "attacks with their" << this->weapon->getType() << std::endl;
+    std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
 }
