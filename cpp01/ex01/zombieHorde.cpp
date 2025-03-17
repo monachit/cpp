@@ -5,19 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/21 14:21:26 by mnachit           #+#    #+#             */
-/*   Updated: 2024/12/21 14:36:33 by mnachit          ###   ########.fr       */
+/*   Created: 2025/02/25 16:08:44 by mnachit           #+#    #+#             */
+/*   Updated: 2025/03/14 05:18:20 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-
 Zombie* zombieHorde(int N, std::string name)
 {
-    Zombie *zombie =  new Zombie[N];
+    if (N <= 0)
+    {
+        std::cout << "Stop ! \n";
+        exit(0);
+    }
+    Zombie *a = new (std::nothrow) Zombie[N];
+    if (!a)
+    {
+        return (NULL);
+    }
+    int i = 0;
 
-    for (int i = 0; i < N; i++)
-        zombie[i].setName(name + std::to_string(i));
-    return (zombie);
+    while (i < N)
+    {
+        a[i].set(name);
+        i++;
+    }
+    return (a);
 }

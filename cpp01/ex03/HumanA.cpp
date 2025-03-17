@@ -5,14 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/23 12:03:05 by mnachit           #+#    #+#             */
-/*   Updated: 2024/12/23 15:39:40 by mnachit          ###   ########.fr       */
+/*   Created: 2025/02/26 16:56:24 by mnachit           #+#    #+#             */
+/*   Updated: 2025/03/10 15:37:43 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-void HumanA::attack(void)
+
+void HumanA::attack()
 {
-    std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+    std::cout << name << " attacks with their " << a.getType() << std::endl;
+}
+
+HumanA::HumanA(std::string x, Weapon &y) : a(y){
+    name  =x;
 }

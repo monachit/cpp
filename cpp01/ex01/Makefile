@@ -1,24 +1,23 @@
-NAME= Zombie
+NAME=main
+CC=c++
+CFLAGS= -Wall -Wextra -Werror
+SCRC= main.cpp Zombie.cpp zombieHorde.cpp
+OSCRC= $(SCRC:.cpp=.o)
 
-SRCS= Zombie.cpp zombieHorde.cpp main.cpp
+all : $(NAME)
 
-OBJS= $(SRCS:.cpp=.o)
+$(NAME) : $(OSCRC)
+		$(CC) $(CFLAGS)  -o $(NAME) $(OSCRC)
 
-CXX = g++
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c -o $@ $<  
+	
+clean :
+	rm -rf $(OSCRC)
 
-CXXFLAGS = -Wall -Wextra -Werror
+fclean : clean
+	rm -rf $(NAME)
 
-all: $(NAME)
+re : fclean all
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
-
-clean:
-	rm -f $(OBJS)
-
-fclean: clean
-	rm -f $(NAME)
-
-re: fclean all
-
-.PHONY: all clean fclean re
+.PHONY = all clean fclean re

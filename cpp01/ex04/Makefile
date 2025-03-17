@@ -1,23 +1,22 @@
-NAME=read
-
-SRC= main.cpp read.cpp
-
-OBJ= $(SRC:.cpp=.o)
-
-CXX= g++
-
-CXXFLAGS= -Wall -Wextra -Werror
+NAME = main
+CC = c++
+CFLAGS = -Wall -Wextra -Werror
+SRC = main.cpp have.cpp
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	CXX CXXFLAGS $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c -o $@ $<  
+	
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 

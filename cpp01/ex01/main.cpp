@@ -5,20 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/21 14:25:33 by mnachit           #+#    #+#             */
-/*   Updated: 2024/12/21 14:37:01 by mnachit          ###   ########.fr       */
+/*   Created: 2025/02/25 16:08:37 by mnachit           #+#    #+#             */
+/*   Updated: 2025/03/14 05:29:50 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
+
 int main()
 {
-    Zombie *zombies = zombieHorde(5, "Zombie");
-    for (int i = 0; i < 5; i++)
+    int l;
+    
+    l = 8;
+    Zombie *a = zombieHorde(l, "Hello");
+    if (!a)
+        return (1);
+    for (int i = 0; i < l; i++)
     {
-        zombies[i].announce();
+        a[i].announce();
     }
-    delete [] zombies;
+
+    delete[] a;
     return (0);
 }

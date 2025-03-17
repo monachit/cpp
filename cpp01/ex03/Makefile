@@ -1,24 +1,23 @@
-NAME= Main
+NAME=main
+CC=c++
+CFLAGS= -Wall -Wextra -Werror
+SCRC= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+OSCRC= $(SCRC:.cpp=.o)
 
-SRCS= main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+all : $(NAME)
 
-OBJS= $(SRCS:.cpp=.o)
+$(NAME) : $(OSCRC)
+		$(CC) $(CFLAGS)  -o $(NAME) $(OSCRC)
 
-CXX = g++
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c -o $@ $<  
 
-CXXFLAGS = -Wall -Wextra -Werror
+clean :
+	rm -rf $(OSCRC)
 
-all: $(NAME)
+fclean : clean
+	rm -rf $(NAME)
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+re : fclean all
 
-clean:
-	rm -f $(OBJS)
-
-fclean: clean
-	rm -f $(NAME)
-
-re: fclean all
-
-.PHONY: all clean fclean re
+.PHONY = all clean fclean re

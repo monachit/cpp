@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.hpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/25 11:25:13 by mnachit           #+#    #+#             */
-/*   Updated: 2024/12/25 11:45:10 by mnachit          ###   ########.fr       */
+/*   Created: 2025/02/27 12:37:19 by mnachit           #+#    #+#             */
+/*   Updated: 2025/02/27 17:54:48 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_HPP
-# define MAIN_HPP
+#ifndef HARL_HPP
+#define HARL_HPP
 
-#include <iostream>
 #include <string>
-#include <fstream>
+#include <iostream>
+class Harl{
+
+    private:
+        void debug(void);
+        void info(void);
+        void warning(void);
+        void error(void);    
+
+    public:
+        void complain(std::string level);
 
 
-class Main{
-    private :
-        std::string s1;
-        std::string s2;
-    public :
-        Main(std::string s1, std::string s2);
-        std::string getfile1(std:ifstream file);
 };
+
+
+
 
 #endif

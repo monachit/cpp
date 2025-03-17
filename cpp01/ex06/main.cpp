@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/25 11:43:44 by mnachit           #+#    #+#             */
-/*   Updated: 2024/12/25 11:45:18 by mnachit          ###   ########.fr       */
+/*   Created: 2025/02/27 18:14:02 by mnachit           #+#    #+#             */
+/*   Updated: 2025/02/27 18:15:51 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#include "Harl.hpp"
 
-Main::Main(std::string s1, std::string s2)
+int main(int ac, char **av)
 {
-    this->s1 = s1;
-    this->s2 = s2;
-}
-
-std::string Main::getfile1(std::ifstream file)
-{
-    std::string line;
+    Harl a;
     
-    getline(file, line);
-    return (line);
+    if (ac == 2)
+        a.complain(av[1]);
+    else
+        std::cout << "Only 2 paramters\n";
 }

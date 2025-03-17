@@ -1,7 +1,7 @@
 NAME=main
-CC=c++
+CC=c++ -g
 CFLAGS= -Wall -Wextra -Werror
-SCRC= main.cpp
+SCRC= main.cpp Harl.cpp
 OSCRC= $(SCRC:.cpp=.o)
 
 all : $(NAME)
@@ -11,7 +11,7 @@ $(NAME) : $(OSCRC)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c -o $@ $<  
-
+	
 clean :
 	rm -rf $(OSCRC)
 

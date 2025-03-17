@@ -5,15 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 15:41:38 by mnachit           #+#    #+#             */
-/*   Updated: 2024/12/21 14:03:58 by mnachit          ###   ########.fr       */
+/*   Created: 2025/02/25 14:54:47 by mnachit           #+#    #+#             */
+/*   Updated: 2025/03/12 01:39:51 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-
 Zombie* newZombie(std::string name)
 {
-    return (new Zombie(name));
+    Zombie *a = new Zombie(name);
+    
+    return (a);
+    
 }

@@ -5,32 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/20 15:31:08 by mnachit           #+#    #+#             */
-/*   Updated: 2024/12/21 14:08:59 by mnachit          ###   ########.fr       */
+/*   Created: 2025/02/25 14:53:20 by mnachit           #+#    #+#             */
+/*   Updated: 2025/03/12 01:41:27 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
-
+#define ZOMBIE_HPP
 
 #include <iostream>
 #include <string>
 
-
-class Zombie
-{
-    private :
+class   Zombie{
+    
+    private:
         std::string name;
-
-    public :
-    Zombie(std::string x)
-    {
-        name = x;  
-    }
+    public:
         void announce(void);
+        Zombie(std::string a);
+        
+    ~Zombie();
+        
 };
-void randomChump(std::string name);
-    Zombie* newZombie(std::string name);
 
-#endif 
+        void randomChump(std::string name);
+        Zombie* newZombie(std::string name);
+
+
+
+#endif

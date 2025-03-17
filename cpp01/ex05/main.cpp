@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/26 17:03:57 by mnachit           #+#    #+#             */
-/*   Updated: 2025/03/10 16:14:46 by mnachit          ###   ########.fr       */
+/*   Created: 2025/02/27 12:36:54 by mnachit           #+#    #+#             */
+/*   Updated: 2025/02/27 18:05:23 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#include "Harl.hpp"
 
-
-void HumanB::attack()
+int main()
 {
-    if (a)
-        std::cout << name << " attacks with their " << a->getType() << "\n";
-    else
-        std::cout << name << " has No weapon " << "\n";
-}
+    Harl a;
 
-HumanB::HumanB(std::string x)
-{
-    a = NULL;
-    name = x;
-}
+    a.complain("DEBUG");
+    a.complain("ERROR");
+    a.complain("WARNING");
+    a.complain("INFO");
 
-void HumanB::setWeapon(Weapon &club)
-{
-    a = &club;
+    return (0);
 }
