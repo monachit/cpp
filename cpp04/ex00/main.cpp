@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 02:10:41 by mnachit           #+#    #+#             */
-/*   Updated: 2025/03/29 04:54:23 by mnachit          ###   ########.fr       */
+/*   Updated: 2025/04/04 15:25:07 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include "dog.hpp"
 #include "wronganimal.hpp"
 #include "wrongcat.hpp"
+
+
+
 int main()
 {
     const Animal* meta = new Animal();
@@ -26,12 +29,11 @@ int main()
     j->makeSound();
     meta->makeSound();
     
-    Wrongcat l;
-    const WrongAnimal& m = l;
+    const WrongAnimal* m = new Wrongcat();
 
 
-    m.makeSound();
-    
+    m->makeSound();
+    delete m;
 
     delete meta;
     delete j;

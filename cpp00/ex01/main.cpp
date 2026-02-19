@@ -5,34 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 11:15:54 by mnachit           #+#    #+#             */
-/*   Updated: 2024/12/20 15:21:21 by mnachit          ###   ########.fr       */
+/*   Created: 2025/02/20 18:14:55 by mnachit           #+#    #+#             */
+/*   Updated: 2025/02/24 13:04:28 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "main.hpp"
+
 
 int main(int ac, char **av)
 {
-    PhoneBook Phonebook;
-    
-    std::string input;
-    bool a = true;
-    Phonebook.inizialize_index(&Phonebook);
+    Phonebook phonebook;
+    std::string str;
 
-    std::cout << "please enter : ADD, SEARCH, EXIT: ";    
-    while (a)
+    std::cout << "Welcome to the Phonebook : \n";
+    std::cout << "Please choose : ADD, SEARCH, EXIT \n";
+    if (!getline(std::cin, str))
+        return (1);
+    phonebook.set_index(-1);
+    while (str != "EXIT")
     {
-        if (!std::getline(std::cin, input))
+        if (str == "ADD")
+            phonebook.add_in(&phonebook);
+        else if (str == "SEARCH")
+            phonebook.search_in(&phonebook);
+        std::cout << "Please choose : ADD, SEARCH, EXIT \n";
+        if(!getline(std::cin, str))
             return (1);
-        else if (input == "EXIT")
-            return (0) ;
-        else if (input == "SEARCH")
-            a = Phonebook.search_contact(&Phonebook);
-        else if (input == "ADD")
-            a = Phonebook.add_contact(&Phonebook);
-        else {
-            std::cout << "please enter : ADD, SEARCH, EXIT: ";    
-        }
     }
+    std::cout << "Gooood byy \n";
+    return(0);
 }

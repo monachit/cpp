@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 05:05:34 by mnachit           #+#    #+#             */
-/*   Updated: 2025/03/29 05:34:23 by mnachit          ###   ########.fr       */
+/*   Updated: 2025/04/04 13:57:54 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Brain::Brain()
 
 Brain::~Brain()
 {
-    std::cout << "Brain Destructor called";
+    std::cout << "Brain Destructor called\n";
 }
 
 Brain::Brain(const Brain& a)
@@ -41,13 +41,13 @@ Brain& Brain::operator=(const Brain &a)
     return *this;
 }
 
-void Brain::set(int index, std::string str)
+void Brain::set(int index, const std::string &str)
 {
     if (index >=0 && index < 100)
         ideas[index] = str;
 }
 
-std::string Brain::get(int index)
+const std::string Brain::get(int index) const
 {
     if (index >=0 && index < 100)
         return (ideas[index]);

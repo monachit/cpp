@@ -1,7 +1,7 @@
 NAME = main
 CC = c++
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.cpp have.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 01:50:10 by mnachit           #+#    #+#             */
-/*   Updated: 2025/03/29 06:57:59 by mnachit          ###   ########.fr       */
+/*   Updated: 2025/04/04 15:04:59 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,4 @@ const std::string& Animal::getType() const
 {
     return (type);
 }
+

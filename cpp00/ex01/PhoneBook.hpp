@@ -5,27 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 11:29:26 by mnachit           #+#    #+#             */
-/*   Updated: 2024/12/20 10:24:12 by mnachit          ###   ########.fr       */
+/*   Created: 2025/02/20 18:15:12 by mnachit           #+#    #+#             */
+/*   Updated: 2025/02/24 12:37:11 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
+
 #include <iostream>
 #include <string>
 #include "Contact.hpp"
 
+class Phonebook{
 
-class PhoneBook {
     private:
-        Contact contact[8];
-        int index;
-    
+        Contact phonebook[8];
+        int    index;
+
     public:
-        bool add_contact(PhoneBook *list);
-        bool search_contact(PhoneBook *list);
-        void inizialize_index(PhoneBook *list);
+        void add_in(Phonebook *list);
+        void search_in(Phonebook *list);
+        void  set_index(int i);
+        int     get_index();
 };
 
 #endif

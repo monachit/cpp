@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 01:59:30 by mnachit           #+#    #+#             */
-/*   Updated: 2025/03/29 06:56:01 by mnachit          ###   ########.fr       */
+/*   Updated: 2025/04/04 11:10:22 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ Dog& Dog::operator=(const Dog &a)
 
 void Dog::makeSound() const
 {
-    std::cout << "Kalb\n";
+    std::cout << "Hawww hawww\n";
 }

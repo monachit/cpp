@@ -1,24 +1,30 @@
-NAME=PhoneBook
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/02/20 18:13:35 by mnachit           #+#    #+#              #
+#    Updated: 2025/02/20 18:18:59 by mnachit          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-SRC=PhoneBook.cpp contact.cpp main.cpp
+NAME=main
+CC=c++
+FLAGS= -Wall -Wextra -Werror
+SRCC= main.cpp Contact.cpp PhoneBook.cpp
+OSRC = $(SRCC:.cpp=.o)
 
-OBJ=$(SRC:.cpp=.o)
+all : $(NAME)
 
-CC= g++
-
-CFLAGS= -Wall -Wextra -Werror
-
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-
+$(NAME): $(OSRC)
+	$(CC) $(FLAGS) -o $(NAME) $(OSRC)
+	
 clean:
-	rm -f $(OBJ)
-
+	rm -f $(OSRC)
 fclean: clean
 	rm -f $(NAME)
-
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re 

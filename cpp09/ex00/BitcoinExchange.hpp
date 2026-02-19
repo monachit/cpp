@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 06:06:11 by mnachit           #+#    #+#             */
-/*   Updated: 2025/10/11 03:56:10 by mnachit          ###   ########.fr       */
+/*   Updated: 2025/10/20 12:10:37 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ class BitcoinExchange {
         BitcoinExchange(BitcoinExchange &other); 
         BitcoinExchange& operator=(BitcoinExchange &other);   
         int check_date(std::string str);
-        std::map<std::string, double> getMap() const { return map; }
-        void parseData();
+        int parseData();
         void processInput(const std::string& filename);
 };
 

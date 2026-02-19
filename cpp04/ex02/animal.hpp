@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 01:45:23 by mnachit           #+#    #+#             */
-/*   Updated: 2025/03/29 05:50:40 by mnachit          ###   ########.fr       */
+/*   Updated: 2025/04/04 15:15:07 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ class Animal{
     public:
        Animal(); 
        virtual ~Animal(); 
-       Animal(std::string str); 
-       Animal& operator=(Animal &a); 
-       void virtual makeSound() const = 0;
+       Animal(const Animal &a); 
+       Animal& operator=(const Animal &a); 
+       virtual void makeSound() const = 0;
        const std::string& getType() const;
 
     

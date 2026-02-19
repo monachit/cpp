@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 01:49:11 by mnachit           #+#    #+#             */
-/*   Updated: 2025/03/29 05:48:24 by mnachit          ###   ########.fr       */
+/*   Updated: 2025/04/04 11:38:12 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ class Dog: public Animal{
        Dog(const Dog &other); 
        Dog& operator=(const Dog &other); 
        void makeSound() const;
-    
+       const std::string get(int index) const;
+       void set(int index, const std::string &str);
       
 };
 

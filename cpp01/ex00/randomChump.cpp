@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 14:58:00 by mnachit           #+#    #+#             */
-/*   Updated: 2025/03/12 01:42:01 by mnachit          ###   ########.fr       */
+/*   Updated: 2025/03/19 06:14:39 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void randomChump(std::string name)
 {
     Zombie a(name);
-    a.announce();   
+    a.announce();
 }

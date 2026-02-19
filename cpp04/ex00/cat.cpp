@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 01:51:57 by mnachit           #+#    #+#             */
-/*   Updated: 2025/03/29 06:55:41 by mnachit          ###   ########.fr       */
+/*   Updated: 2025/04/04 09:56:40 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,5 @@ Cat& Cat::operator=(const Cat &a)
 
 void Cat::makeSound() const
 { 
-    std::cout << "moushaaa \n";
+    std::cout << "Meooow \n";
 }

@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/29 01:47:13 by mnachit           #+#    #+#             */
-/*   Updated: 2025/03/29 06:52:56 by mnachit          ###   ########.fr       */
+/*   Updated: 2025/04/04 10:16:35 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class Cat: public Animal{
        void makeSound() const;
       
 };
+
 
 
 #endif

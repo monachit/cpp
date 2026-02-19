@@ -5,104 +5,151 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 13:45:12 by mnachit           #+#    #+#             */
-/*   Updated: 2024/12/20 15:20:42 by mnachit          ###   ########.fr       */
+/*   Created: 2025/02/20 18:14:58 by mnachit           #+#    #+#             */
+/*   Updated: 2025/02/24 13:19:38 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-bool    PhoneBook::add_contact(PhoneBook *list)
-{    
+int::Phonebook::get_index()
+{
+    return (index);
+}
+
+void::Phonebook::set_index(int i)
+{
+    if (i > 9)
+        return ;
+    index = i;
+}
+
+void::Phonebook::add_in(Phonebook *list)
+{
+    static int  i = 0;
     std::string input;
-    std::cout << "please enter first name: ";
-    while (true)
+    
+    list->set_index(0);
+    while (input.length() == 0)
     {
-        if (!std::getline(std::cin, input))
-            return false;
-        if (!input.empty())
-            break;  
-        std::cout << "please enter first name: ";
+        std::cout<< "Enter the first name : \n";
+        if (!getline(std::cin, input))
+            exit(1);
+        if (input[0] >= 0 && input[0] <= 31)
+                input.clear();
     }
-    list->contact[list->index % 8].first_name(input); 
-    std::cout << "please enter last name: ";
-    while (true)
+    list->phonebook[i % 8].set_fname(input);
+    input.clear();
+    while (input.length() == 0)
     {
-        if (!std::getline(std::cin, input))
-            return false;
-        if (!input.empty())
-            break;
-        std::cout << "please enter last name: ";
+        std::cout << "Enter the last name : \n";
+        if (!getline(std::cin, input))
+            exit(1);
+        if (input[0] >= 0 && input[0] <= 31)
+            input.clear();       
     }
-    list->contact[list->index % 8].last_name(input);
-    std::cout << "please enter nickname: ";
-    while (true)
+    list->phonebook[i % 8].set_lname(input);
+    input.clear();
+    while (input.length() == 0)
     {
-        if (!std::getline(std::cin, input))
-            return false;
-        if (!input.empty())
-            break;
-        std::cout << "please enter nickname: ";
+        std::cout << "Enter the phonNumber: \n";
+        if (!getline(std::cin, input))
+            exit(1);
+        for (int i = 0; input[i] != '\0'; i++)
+        {
+            if (input[i] < '0' || input[i] >'9')
+            {
+                std::cout << "Please we accept only numbers \n";   
+                input.clear();     
+                break;
+            }
+        }
     }
-    list->contact[list->index % 8].nick_name(input);
-    std::cout << "please enter phone number: ";
-    while (true)
+    list->phonebook[i % 8].set_pnumber(input);
+    input.clear();
+    while (input.length() == 0)
     {
-        if (!std::getline(std::cin, input))
-            return false;
-        if (!input.empty())
-            break;
-        std::cout << "please enter phone number: ";
+        std::cout << "Enter the Nickname: \n";
+        if (!getline(std::cin, input))
+            exit(1);
+        if (input[0] >= 0 && input[0] <= 31)
+                input.clear();
+        
     }
-    list->contact[list->index % 8].phone_number(input);
-    std::cout << "please enter secret: ";
-    while (true)
+    list->phonebook[i % 8].set_nickname(input);
+    input.clear();
+    while (input.length() == 0)
     {
-        if (!std::getline(std::cin, input))
-            return false;
-        if (!input.empty())
-            break;
-        std::cout << "please enter secret: ";
+        std::cout << "Enter the darkest secret: \n";
+        if (!getline(std::cin, input))
+            exit(1);
+        if (input[0] >= 0 && input[0] <= 31)
+                input.clear();
     }
-    list->contact[list->index % 8]._secret(input);
-    std::cout << "contact added\n";
-    list->index++;
-    return (true);
+    list->phonebook[i % 8].set_dsecret(input);
+    list->set_index(i);
+    i++;
 }
 
-bool   PhoneBook::search_contact(PhoneBook *list)
+int     Myatoi(std::string input)
 {
-    if (list->index == 0)
-    {
-        std::cout << "no contact\n";
-        return true;
-    }
-    for (int i = 0; i < list->index; i++)
-        list->contact[i].print_contact1(&list->contact[i], i + 1);
-    while (1)
-    {
-        std::string input;
-        std::cout << "please enter index : \n";
-        std::getline(std::cin, input);
-        if (input.empty())
-        {
-            std::cout << "Input cannot be empty. Try again.\n";
-            return false;
-        }
-
-        if (input.size() == 1 && input[0] >= '1' && input[0] <= '8')
-        {
-            int index = input[0] - '0';
-            list->contact[index - 1].print_contact(&list->contact[index - 1]);
-            std::cout << "please enter : ADD, SEARCH, EXIT: ";
-            return true;
-        }
-        else
-            std::cout << "Invalid input\n";
-    }
+    if (input.length() > 1)
+        return (-1);
+    if (input[0] >= '1' && input[0] <= '8')
+        return (input[0] - '0');
+    return(-1);
 }
 
-void    PhoneBook::inizialize_index(PhoneBook *list)
+std::string handle_length(std::string s)
 {
-    list->index = 0;
+    std::string st;
+    int i = 0;
+    if (s.length() > 10)
+    {
+        st.resize(10);
+        while (i < 9)
+        {
+            st[i] = s[i]; 
+            i++;
+        }
+        st[9] = '.';
+    }
+    else
+        st = s;
+    return (st);
+}
+
+void::Phonebook::search_in(Phonebook *list)
+{
+    std::string input;
+    int     p;
+    
+    if (list->get_index() == -1)
+    {
+        std::cout << "There is no information here \n";
+        return ;
+    }
+    std::cout << "Enter the index please : \n";
+    if (!std::getline(std::cin, input))
+        exit(1);
+    p = Myatoi(input);
+    while (p == -1)
+    {
+        if (p == -1)
+        {
+            std::cout << "Please should be between 1 and 8 \n";
+            std::cout << "Enter the index please : \n";
+        }
+        if (!std::getline(std::cin, input))
+            return ;
+        p = Myatoi(input);
+    }
+    p -= 1;
+    if (p <= list->get_index())
+    {
+        std::cout << "First name :   " << handle_length(list->phonebook[p].get_fname());
+        std::cout << " |      Last name :   " << handle_length(list->phonebook[p].get_lname());
+        std::cout << " |      Phone number :   " << handle_length(list->phonebook[p].get_pnumber());
+        std::cout << " |       Nikname  :   " << handle_length(list->phonebook[p].get_nickname())<< "\n";
+    }
 }

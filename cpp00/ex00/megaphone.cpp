@@ -5,24 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/12 21:09:30 by mnachit           #+#    #+#             */
-/*   Updated: 2024/11/12 22:07:18 by mnachit          ###   ########.fr       */
+/*   Created: 2025/02/20 18:13:20 by mnachit           #+#    #+#             */
+/*   Updated: 2025/02/24 13:25:05 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-
 int main(int ac, char **av)
 {
-    if (ac == 1)
-        std::cout<< "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
-    for (int i = 1; i < ac ; i++)
+    for (int i = 1; i < ac; i++)
     {
-        if (i != 1)
-            std::cout<< " ";
-        for (int j = 0; av[i][j]; j++)
-            std::cout<<  (char)(toupper(av[i][j]));
+        if (i != 1 && av[i])
+            std::cout << " ";
+        for  (int j = 0; av[i][j] ; j++)
+        {
+            if (av[i][j] >= 'a' && av[i][j] <= 'z')
+                av[i][j] = av[i][j] - 32;
+            std::cout << av[i][j];
+        }
     }
-    std::cout << std::endl;
+    std::cout << "\n";
 }

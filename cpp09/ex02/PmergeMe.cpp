@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/15 04:43:42 by mnachit           #+#    #+#             */
-/*   Updated: 2025/10/15 06:41:08 by mnachit          ###   ########.fr       */
+/*   Updated: 2025/10/21 12:31:50 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,22 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &other)
 std::vector<int> PmergeMe::parseinput(int ac, char **av)
 {
     std::vector<int> v;
+    
+    for (int i = 1; i < ac; i++)
+    {
+        std::string arg(av[i]);
+        for (size_t j = 0; j < arg.length(); j++)
+        {
+            if (arg[j] == ' ')
+                throw std::invalid_argument("Invalid input: Multiple numbers in a single argument");
+        }
+    }
     for (int i = 1; i < ac; i++)
     {
         std::istringstream iss(av[i]);
         int num;
-        if (!(iss >> num) || !iss.eof())
-            throw std::invalid_argument("Error: Input is not a valid number");
+        if (!(iss >> num))
+            throw std::invalid_argument("Invalid input: Non-integer value");
         v.push_back(num);
     }
     return v;
@@ -100,16 +110,16 @@ std::vector<int> PmergeMe::FordJohnsonsortvec(std::vector<int> &v)
         }
     }
     if (unpair)
-        los.push_back(v.back());
+        win.push_back(v.back());
     
     win = FordJohnsonsortvec(win);
     
     std::vector<bool> check(los.size(), false);
     std::vector<int> jacob = jacobsthalnum(los.size());
 
-    for (int i = 0; i < (int)jacob.size(); i++)
+    for (int i = 2; i < (int)jacob.size(); i++)
     {
-        if (jacob[i] < (int)los.size() && !check[jacob[i]])
+        if (jacob[i] < (int)los.size())
         {
             binaryinsert(win, los[jacob[i]]);
             check[jacob[i]] = true;
@@ -157,8 +167,6 @@ std::deque<int> jacobsthalnum1(int n)
     return deq;
 }
 
-
-
 std::deque<int> PmergeMe::FordJohnsonsortdeq(std::deque<int> &d)
 {
     std::deque<int> win, los;
@@ -180,16 +188,16 @@ std::deque<int> PmergeMe::FordJohnsonsortdeq(std::deque<int> &d)
         }
     }
     if (unpair)
-        los.push_back(d.back());
+        win.push_back(d.back());
     
     win = FordJohnsonsortdeq(win);
     
     std::vector<bool> check(los.size(), false);
     std::deque<int> jacob = jacobsthalnum1(los.size());
 
-    for (int i = 0; i < (int)jacob.size(); i++)
+    for (int i = 2; i < (int)jacob.size(); i++)
     {
-        if (jacob[i] < (int)los.size() && !check[jacob[i]])
+        if (jacob[i] < (int)los.size())
         {
             binaryinsert(win, los[jacob[i]]);
             check[jacob[i]] = true;

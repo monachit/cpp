@@ -6,7 +6,7 @@
 /*   By: mnachit <mnachit@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 09:12:12 by mnachit           #+#    #+#             */
-/*   Updated: 2025/10/15 06:58:11 by mnachit          ###   ########.fr       */
+/*   Updated: 2025/10/21 10:08:19 by mnachit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,12 @@ int main(int ac, char **av)
         std::cerr << "Error: Not enough arguments" << std::endl;
         return 1;
     }
-
-    try
+    
+    try 
     {
         PmergeMe pmerge;
         std::vector<int> v = pmerge.parseinput(ac, av);
         std::deque<int> d(v.begin(), v.end());
-
         clock_t startvec = clock();
         std::vector<int> sortedVec = pmerge.FordJohnsonsortvec(v);
         clock_t endvec = clock();
@@ -46,18 +45,16 @@ int main(int ac, char **av)
         for (size_t i = 0; i < sortedDeq.size(); i++)
             std::cout << sortedDeq[i] << " ";
         std::cout << std::endl;
-        double timevec = double(endvec - startvec) / CLOCKS_PER_SEC * 1000000;
-        double timedeq = double(enddeq - startdeq) / CLOCKS_PER_SEC * 1000000;
+        double timevec = double(endvec - startvec);
+        double timedeq = double(enddeq - startdeq);
         std::cout << "Time to process a range of " << v.size() << " elements with std::vector : " << timevec << " us" << std::endl;
         std::cout << "Time to process a range of " << v.size() << " elements with std::deque : " << timedeq << " us" << std::endl;
-
-        
     }
-    catch(const std::exception& e)
+    catch (const std::exception &e)
     {
-        std::cerr << e.what() << '\n';
+        std::cerr << "Error: " << e.what() << std::endl;
+        return 1;
     }
-    
     
     
 }
